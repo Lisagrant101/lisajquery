@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang ="en">
+<head>
+	<meta charset = "UTF-8">
+	<meta name ="viewport" content="width-device width, initial-scale=1.0">
+	<title>1.1 First Jquery page</title>
+	
+	<!--download jquery code-->
+			<!--document ready function runs at opening page on line 16-->
+		<!--anonymous click function runs only when box is clicked to create a random rgb code to store and change the color of box 
+			Line 20 formats the rgb code-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+
+	<script>
+		$(function(){
+			let number = 0;
+			$("#box").html("start");
+			$("#box").click(function(){
+					let red = Math.floor((Math.random()*255) +0);
+					let green = Math.floor((Math.random()*255) +0);
+					let blue = Math.floor((Math.random()*255) +0);
+					let color = "rgb("+red+"," +green + "," + blue +")";
+					
+					if (number == 10){
+						$("#box").html("start");
+						number =0;
+						}
+					else{
+						number = number+1;
+						$("#box").html(number);
+					};
+					$("#box").css("background-color", color);
+
+			});
+		});
+	</script>
+	<style>
+		#box{
+			border: 1px solid black;
+			height:300px;
+			width:300px;
+			font-size: xx-large;
+			text-align: center;
+			color:black;
+			}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
